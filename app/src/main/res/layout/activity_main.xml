@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/ru_pizzeria"
+        android:layout_width="414dp"
+        android:layout_height="63dp"
+        android:text="@string/welcome_text"
+        android:textAlignment="center"
+        android:textAppearance="@style/TextAppearance.AppCompat.Large"
+        android:textColor="#FF0000"
+        android:textSize="48sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.666"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.049" />
+
+    <Button
+        android:id="@+id/store_orders_button"
+        android:layout_width="218dp"
+        android:layout_height="52dp"
+        android:text="@string/store_orders"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.512"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.929" />
+
+    <Button
+        android:id="@+id/create_order_button"
+        android:layout_width="218dp"
+        android:layout_height="52dp"
+        android:onClick="createOrder"
+        android:text="@string/create_order"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.322" />
+
+    <ImageView
+        android:id="@+id/store_image"
+        android:layout_width="339dp"
+        android:layout_height="254dp"
+        android:layout_marginBottom="4dp"
+        android:contentDescription="@string/store_orders_img"
+        app:layout_constraintBottom_toTopOf="@+id/store_orders_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/create_order_button"
+        app:srcCompat="@drawable/store" />
+
+    <EditText
+        android:id="@+id/customer_phone"
+        android:layout_width="221dp"
+        android:layout_height="77dp"
+        android:accessibilityLiveRegion="polite"
+        android:ems="10"
+        android:hint="@string/phone_prompt"
+
+        android:importantForAutofill="no"
+        android:inputType="number|phone"
+        android:minHeight="48dp"
+        android:textAlignment="center"
+        app:layout_constraintBottom_toTopOf="@+id/create_order_button"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.489"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ru_pizzeria"
+        app:layout_constraintVertical_bias="0.521"
+        tools:ignore="LabelFor,TextContrastCheck" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>

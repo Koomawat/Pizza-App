@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".PizzaOptionsActivity">
+
+    <ImageView
+        android:id="@+id/deluxe_image"
+        android:layout_width="172dp"
+        android:layout_height="87dp"
+        android:contentDescription="@string/deluxe_img"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.066"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.099"
+        app:srcCompat="@drawable/deluxe_pizza" />
+
+    <Button
+        android:id="@+id/current_order_button"
+        android:layout_width="193dp"
+        android:layout_height="48dp"
+        android:onClick="currentOrderClick"
+        android:text="@string/current_order"
+        app:layout_constraintBottom_toBottomOf="@+id/current_order_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.926"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/current_order_image"
+        app:layout_constraintVertical_bias="0.511" />
+
+    <Button
+        android:id="@+id/order_hawiian_button"
+        android:layout_width="193dp"
+        android:layout_height="48dp"
+        android:layout_marginEnd="16dp"
+        android:onClick="orderHawaiianClick"
+        android:text="@string/order_hawaiian"
+        app:layout_constraintBottom_toBottomOf="@+id/hawaiian_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/hawaiian_image" />
+
+    <Button
+        android:id="@+id/order_deluxe_button"
+        android:layout_width="193dp"
+        android:layout_height="48dp"
+        android:onClick="orderDeluxeClick"
+        android:text="@string/order_deluxe"
+        app:layout_constraintBottom_toBottomOf="@+id/deluxe_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.926"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/deluxe_image"
+        app:layout_constraintVertical_bias="0.435" />
+
+    <Button
+        android:id="@+id/order_pepperoni_button"
+        android:layout_width="193dp"
+        android:layout_height="48dp"
+        android:onClick="orderPepperoniClick"
+        android:text="@string/order_pepperoni"
+        app:layout_constraintBottom_toBottomOf="@+id/pepperoni_image"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.926"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/pepperoni_image"
+        app:layout_constraintVertical_bias="0.462" />
+
+    <ImageView
+        android:id="@+id/current_order_image"
+        android:layout_width="178dp"
+        android:layout_height="134dp"
+        android:contentDescription="@string/current_order_img"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.068"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/pepperoni_image"
+        app:layout_constraintVertical_bias="0.355"
+        app:srcCompat="@drawable/shopping_cart_full"
+        tools:ignore="ImageContrastCheck" />
+
+    <ImageView
+        android:id="@+id/hawaiian_image"
+        android:layout_width="203dp"
+        android:layout_height="102dp"
+        android:contentDescription="@string/hawaiian_img"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.313"
+        app:srcCompat="@drawable/hawaiian_pizza" />
+
+    <ImageView
+        android:id="@+id/pepperoni_image"
+        android:layout_width="146dp"
+        android:layout_height="115dp"
+        android:contentDescription="@string/pepperoni_img"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.116"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.563"
+        app:srcCompat="@drawable/pepperoni_pizza" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

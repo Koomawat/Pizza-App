@@ -1,0 +1,54 @@
+<resources>
+    <string name="app_name">Pizzeria</string>
+
+    <string name="welcome_text">RU Pizzeria</string>
+
+    <string name="order_hawaiian">Order Hawaiian</string>
+    <string name="order_deluxe">Order Deluxe</string>
+    <string name="order_pepperoni">Order Pepperoni</string>
+
+    <string name="store_orders">Store Orders</string>
+    <string name="store_orders_img">Store orders image</string>
+
+    <string name="current_order">Current Order</string>
+    <string name="create_order">Create Order</string>
+
+    <string name="deluxe_img">Deluxe pizza image</string>
+    <string name="hawaiian_img">Hawaiian pizza image</string>
+    <string name="pepperoni_img">Pepperoni pizza image</string>
+    <string name="current_order_img">Current order image</string>
+    <string name="chosen_pizza_img">Chosen pizza image</string>
+
+    <string name="phone_prompt">Enter Phone Number</string>
+
+    <string name="pizza_options">Pizza Options</string>
+
+    <string name="size_options">Select Size</string>
+
+    <string name="additional_toppings">Additional Toppings</string>
+
+    <string name="selected_toppings">Selected Toppings</string>
+
+    <string name="add_topping">Add</string>
+
+    <string name="remove_topping">Remove</string>
+
+    <string name="add_order">Add to Order</string>
+
+    <string-array name="spinner_sizes">
+        <item>Small</item>
+        <item>Medium</item>
+        <item>Large</item>
+    </string-array>
+
+    <string name="remove_pizza">Remove Selected Pizza</string>
+
+    <string name="place_order">Place Order</string>
+
+    <string name="sales_tax">Sales Tax</string>
+
+    <string name="total_price">Order Total</string>
+
+    <string name="sub_total">Sub Total</string>
+
+</resources>
