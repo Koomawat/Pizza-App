@@ -28,6 +28,7 @@ public class MainActivity extends AppCompatActivity {
         create_order_button = findViewById(R.id.create_order_button);
         store_orders_button = findViewById(R.id.store_orders_button);
         customer_phone = findViewById(R.id.customer_phone);
+        listOfOrders = new StoreOrders();
     }
 
     public void createOrder(View view) {
@@ -46,12 +47,20 @@ public class MainActivity extends AppCompatActivity {
                     "Creating order for: " + customer_phone.getText().toString(),
                     Toast.LENGTH_SHORT).show();
             customerOrder.putExtra("phone_num", currentPhoneNumber);
-            startActivity(customerOrder);
+            customerOrder.putExtra("store_order", listOfOrders);
+            startActivityForResult(customerOrder, Constants.STORE_ORDER_CODE);
         }
 
 
     }
 
-
-
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (requestCode == Constants.STORE_ORDER_CODE) {
+            if (resultCode == RESULT_OK) {
+                listOfOrders = (StoreOrders) data.getSerializableExtra("storeOrder");
+            }
+        }
+    }
 }

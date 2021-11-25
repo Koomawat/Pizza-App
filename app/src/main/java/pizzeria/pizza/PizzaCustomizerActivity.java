@@ -183,7 +183,7 @@ public class PizzaCustomizerActivity extends AppCompatActivity {
         order.addPizza(pizza);
 
         Toast.makeText(PizzaCustomizerActivity.this,
-                "Pizza Added to Order",
+                "Pizza Added to Order.",
                 Toast.LENGTH_SHORT).show();
 
         Intent result = new Intent();

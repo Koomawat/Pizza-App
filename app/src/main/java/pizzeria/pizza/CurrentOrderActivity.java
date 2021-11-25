@@ -7,6 +7,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
@@ -83,6 +84,14 @@ public class CurrentOrderActivity extends AppCompatActivity {
     }
 
     public void removeSelectedClick(View view) {
+
+        if (order.getPizzas().size() == 0) {
+            Toast.makeText(CurrentOrderActivity.this,
+                    "No Pizzas to Remove.",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
+
         int pizzaNumber = pizza_list_spinner.getSelectedItemPosition();
         order.removePizza(order.getPizzas().get(pizzaNumber));
 
@@ -131,12 +140,33 @@ public class CurrentOrderActivity extends AppCompatActivity {
         String total = df.format(totalAmount);
         order_total_view.setText("$"+total);
 
+        Toast.makeText(CurrentOrderActivity.this,
+                "Pizza Removed.",
+                Toast.LENGTH_SHORT).show();
+
         Intent result = new Intent();
         result.putExtra("ORDERreturn", order);
         setResult(RESULT_OK, result);
     }
 
     public void placeOrderClick(View view) {
+        if (order.getPizzas().size() == 0) {
+            Toast.makeText(CurrentOrderActivity.this,
+                    "No Pizzas in Order.",
+                    Toast.LENGTH_SHORT).show();
+            return;
+        }
 
+        Intent result = new Intent();
+        result.putExtra("ORDERreturn", order);
+        boolean orderPlaced = true;
+        result.putExtra("PLACED", orderPlaced);
+        setResult(RESULT_OK, result);
+
+        Toast.makeText(CurrentOrderActivity.this,
+                "Order Placed.",
+                Toast.LENGTH_SHORT).show();
+
+        finish();
     }
 }

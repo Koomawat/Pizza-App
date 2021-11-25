@@ -17,6 +17,7 @@ public class PizzaOptionsActivity extends AppCompatActivity {
     private String pizzaType;
     private Order order;
     private String customerPhoneNum;
+    private StoreOrders ordersList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -28,9 +29,8 @@ public class PizzaOptionsActivity extends AppCompatActivity {
         Bundle extras = getIntent().getExtras();
 
         customerPhoneNum = extras.getString("phone_num");
+        ordersList = (StoreOrders) extras.getSerializable("store_order");
 
-
-        System.out.println(customerPhoneNum);
         order_deluxe_button = findViewById(R.id.order_deluxe_button);
 
         order = new Order(customerPhoneNum);
@@ -50,7 +50,7 @@ public class PizzaOptionsActivity extends AppCompatActivity {
         pizzaType = "hawaiian";
         hawaiianIntent.putExtra("pizza_type",pizzaType);
         hawaiianIntent.putExtra("ORDER", order);
-        startActivityForResult(hawaiianIntent, 1);
+        startActivityForResult(hawaiianIntent, Constants.ORDER_CODE);
     }
 
     public void orderPepperoniClick(View view) {
@@ -58,26 +58,31 @@ public class PizzaOptionsActivity extends AppCompatActivity {
         pizzaType = "pepperoni";
         pepperoniIntent.putExtra("pizza_type",pizzaType);
         pepperoniIntent.putExtra("ORDER", order);
-        startActivityForResult(pepperoniIntent, 1);
+        startActivityForResult(pepperoniIntent, Constants.ORDER_CODE);
     }
 
     public void currentOrderClick(View view) {
         Intent orderIntent = new Intent(this, CurrentOrderActivity.class);
 
-        System.out.println(order.getPizzas().size());
         orderIntent.putExtra("ORDER", order);
-        startActivityForResult(orderIntent, 1);
+        startActivityForResult(orderIntent, Constants.ORDER_CODE);
     }
 
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 1) {
+        if (requestCode == Constants.ORDER_CODE) {
             if (resultCode == RESULT_OK) {
                 order = (Order) data.getSerializableExtra("ORDERreturn");
+                boolean placed = data.getBooleanExtra("PLACED", false);
+                if (placed == true) {
+                    ordersList.addOrder(order);
+                    Intent result = new Intent();
+                    result.putExtra("storeOrder", ordersList);
+                    setResult(RESULT_OK, result);
+                    finish();
+                }
             }
         }
     }
-
-
 }

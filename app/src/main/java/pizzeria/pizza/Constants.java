@@ -20,4 +20,7 @@ public class Constants {
      */
     public static final double SALES_TAX =  0.06625;
 
+    public static final int ORDER_CODE = 1;
+
+    public static final int STORE_ORDER_CODE = 2;
 }
