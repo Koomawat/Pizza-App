@@ -51,4 +51,7 @@
 
     <string name="sub_total">Sub Total</string>
 
+    <string name="cancel_order">Cancel Order</string>
+
+    <string name="empty"> </string>
 </resources>

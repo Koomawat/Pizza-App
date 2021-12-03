@@ -50,8 +50,12 @@ public class MainActivity extends AppCompatActivity {
             customerOrder.putExtra("store_order", listOfOrders);
             startActivityForResult(customerOrder, Constants.STORE_ORDER_CODE);
         }
+    }
 
-
+    public void storeOrdersClick(View view) {
+        Intent storeOrders = new Intent(this, StoreOrdersActivity.class);
+        storeOrders.putExtra("store_orders",listOfOrders);
+        startActivityForResult(storeOrders, Constants.STORE_ORDER_CODE);
     }
 
     @Override

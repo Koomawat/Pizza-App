@@ -13,6 +13,7 @@
             android:parentActivityName=".MainActivity"
             android:launchMode="singleTop">
         </activity>
+
         <activity android:name=".PizzaCustomizerActivity"
             android:parentActivityName=".PizzaOptionsActivity">
 
@@ -20,6 +21,12 @@
         <activity android:name=".CurrentOrderActivity"
             android:parentActivityName=".PizzaOptionsActivity">
         </activity>
+
+        <activity android:name=".StoreOrdersActivity"
+            android:parentActivityName=".MainActivity">
+
+        </activity>
+
         <activity
             android:name=".MainActivity"
             android:exported="true">

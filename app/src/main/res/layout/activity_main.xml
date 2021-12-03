@@ -27,6 +27,7 @@
         android:id="@+id/store_orders_button"
         android:layout_width="218dp"
         android:layout_height="52dp"
+        android:onClick="storeOrdersClick"
         android:text="@string/store_orders"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
