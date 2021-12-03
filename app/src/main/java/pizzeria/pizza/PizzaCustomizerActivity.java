@@ -1,7 +1,6 @@
 package pizzeria.pizza;
 
 import androidx.appcompat.app.AppCompatActivity;
-
 import android.app.Activity;
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
@@ -14,25 +13,70 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+/**
+ * Pizza Customizer Activity class to customize a given pizza.
+ *
+ * @author Harsh Kumawat, Wayne Huang
+ */
 public class PizzaCustomizerActivity extends AppCompatActivity {
 
+    /**
+     * Image view of the selected pizza type.
+     */
     private ImageView chosen_pizza_image;
+    /**
+     * Additional toppings spinner.
+     */
     private Spinner additional_topping_spinner;
+    /**
+     * Remove toppings spinner.
+     */
     private Spinner remove_topping_spinner;
+    /**
+     * Pizza size spinner.
+     */
     private Spinner size_spinner;
+    /**
+     * Current price text view.
+     */
     private TextView current_price;
+    /**
+     * Current pizza object.
+     */
     private Pizza pizza;
+    /**
+     * Decimal format to format price.
+     */
     private DecimalFormat df = new DecimalFormat("###,##0.00");
+    /**
+     * Additional toppings array list.
+     */
     private ArrayList<String> additional = new ArrayList<>();
+    /**
+     * Additional toppings array adapter.
+     */
     private ArrayAdapter<String> additionalAdapter;
+    /**
+     * Selected toppings array list.
+     */
     private ArrayList<String> selected = new ArrayList<>();
+    /**
+     * Selected toppings array adapter.
+     */
     private ArrayAdapter<String> selectedAdapter;
+    /**
+     * Current order instance.
+     */
     private Order order;
 
+    /**
+     * On create method to set spinner items and image view.
+     *
+     * @param savedInstanceState saved instance state.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -105,6 +149,9 @@ public class PizzaCustomizerActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Sets deluxe default spinners choices for toppings.
+     */
     public void setDeluxeSpinners() {
 
         additional.add("Chicken");
@@ -127,6 +174,9 @@ public class PizzaCustomizerActivity extends AppCompatActivity {
         remove_topping_spinner.setAdapter(selectedAdapter);
     }
 
+    /**
+     * Sets hawaiian default spinners choices for toppings.
+     */
     public void setHawaiianSpinners() {
 
         additional.add("Chicken");
@@ -149,6 +199,9 @@ public class PizzaCustomizerActivity extends AppCompatActivity {
         remove_topping_spinner.setAdapter(selectedAdapter);
     }
 
+    /**
+     * Sets pepperoni default spinners choices for toppings.
+     */
     public void setPepperoniSpinners() {
 
         additional.add("Chicken");
@@ -171,12 +224,18 @@ public class PizzaCustomizerActivity extends AppCompatActivity {
         remove_topping_spinner.setAdapter(selectedAdapter);
     }
 
+    /**
+     * Price update method.
+     */
     public void updatePrice() {
         double pizzaCost = pizza.price();
         String pizzaCostString = df.format(pizzaCost);
         current_price.setText("$"+pizzaCostString);
     }
 
+    /**
+     * Add pizza to order button click handler to add a pizza to the order instance and return to previous activity.
+     */
     public void addPizzaToOrder(View view) {
         Intent intent = getIntent();
         Order order = (Order) intent.getSerializableExtra("ORDER");
@@ -192,6 +251,11 @@ public class PizzaCustomizerActivity extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * Add topping click handler to add a given topping and adjust spinners accordingly.
+     *
+     * @param view view.
+     */
     public void addToppingClick(View view) {
 
         if (selected.size() == Constants.MAX_TOPPINGS) {
@@ -212,6 +276,11 @@ public class PizzaCustomizerActivity extends AppCompatActivity {
         updatePrice();
     }
 
+    /**
+     * Remove topping click handler to remove a given topping and adjust spinners accordingly.
+     *
+     * @param view view.
+     */
     public void removeToppingClick(View view) {
 
         if (selected.size() == Constants.MIN_TOPPINGS) {

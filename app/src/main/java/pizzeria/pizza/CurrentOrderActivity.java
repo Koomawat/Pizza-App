@@ -8,30 +8,80 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.RecyclerView;
-
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+/**
+ * Current Order Activity class to view the current customer's order of pizzas.
+ *
+ * @author Harsh Kumawat, Wayne Huang
+ */
 public class CurrentOrderActivity extends AppCompatActivity {
 
+    /**
+     * Orders list view.
+     */
     private ListView orders_listview;
+    /**
+     * Pizza spinner array adapter.
+     */
     private ArrayAdapter<String> pizzasAdapter;
+    /**
+     * Pizza list array adapter.
+     */
     private ArrayAdapter<String> listAdapter;
+    /**
+     * Pizzas string array list.
+     */
     private ArrayList<String> pizzasStrings = new ArrayList<>();
+    /**
+     * Array list of pizzas.
+     */
     private ArrayList<Pizza> pizzas = new ArrayList<>();
+    /**
+     * Spinner to select a given pizza.
+     */
     private Spinner pizza_list_spinner;
+    /**
+     * Subtotal of current order.
+     */
     private double subtotalAmount;
+    /**
+     * Sales tax of current order.
+     */
     private double salesTaxAmount;
+    /**
+     * Total amount of current order.
+     */
     private double totalAmount;
+    /**
+     * Subtotal text view.
+     */
     private TextView subtotal_view;
+    /**
+     * Sales tax text view.
+     */
     private TextView sales_tax_view;
+    /**
+     * Order total text view.
+     */
     private TextView order_total_view;
+    /**
+     * Decimal format to format price.
+     */
     private DecimalFormat df = new DecimalFormat("###,##0.00");
+    /**
+     * Order instance.
+     */
     private Order order;
 
+    /**
+     * On create method to set spinners and list view items.
+     *
+     * @param savedInstanceState saved instance state.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -83,6 +133,11 @@ public class CurrentOrderActivity extends AppCompatActivity {
         order_total_view.setText("$"+total);
     }
 
+    /**
+     * Removes a given pizza based on the selected spinner item.
+     *
+     * @param view view.
+     */
     public void removeSelectedClick(View view) {
 
         if (order.getPizzas().size() == 0) {
@@ -149,6 +204,11 @@ public class CurrentOrderActivity extends AppCompatActivity {
         setResult(RESULT_OK, result);
     }
 
+    /**
+     * Order place button click handler to add the order to store orders.
+     *
+     * @param view view.
+     */
     public void placeOrderClick(View view) {
         if (order.getPizzas().size() == 0) {
             Toast.makeText(CurrentOrderActivity.this,

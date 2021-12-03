@@ -9,7 +9,7 @@
         android:id="@+id/cancelButton"
         android:layout_width="229dp"
         android:layout_height="52dp"
-        android:onClick="storeOrderClicked"
+        android:onClick="cancelOrderClick"
         android:text="@string/cancel_order"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"

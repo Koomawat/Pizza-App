@@ -10,26 +10,63 @@ import android.widget.ListView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.app.AppCompatActivity;
-
 import java.text.DecimalFormat;
 import java.util.ArrayList;
 
+/**
+ * Store Orders Activity class to view the list of customers and their list of pizzas.
+ *
+ * @author Harsh Kumawat, Wayne Huang
+ */
 public class StoreOrdersActivity extends AppCompatActivity {
 
+    /**
+     * Store orders instance.
+     */
     private StoreOrders listOfOrders;
-
+    /**
+     * Current customer's list view of pizzas.
+     */
     private ListView currentPhoneOrderList;
+    /**
+     * Phone numbers spinner.
+     */
     private Spinner phoneNumsSpinner;
+    /**
+     * Order total text view.
+     */
     private TextView orderPriceView;
+    /**
+     * Phone numbers array adapter.
+     */
     private ArrayAdapter<String> phoneNumsAdapter;
+    /**
+     * Phone numbers string array list.
+     */
     private ArrayList<String> phoneNumsStrings = new ArrayList<>();
+    /**
+     * List adapter to display the current number's pizzas.
+     */
     private ArrayAdapter<String> listAdapter;
+    /**
+     * Pizzas array list of the current number.
+     */
     private ArrayList<Pizza> pizzas = new ArrayList<>();
+    /**
+     * Decimal format to format price.
+     */
     private DecimalFormat df = new DecimalFormat("###,##0.00");
+    /**
+     * Current selected spinner item index.
+     */
     private int currentItem;
 
+    /**
+     * On create method to set spinners and list view items.
+     *
+     * @param savedInstanceState saved instance state.
+     */
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -90,7 +127,12 @@ public class StoreOrdersActivity extends AppCompatActivity {
         });
     }
 
-    public void storeOrderClicked(View view) {
+    /**
+     * Cancel button click handler to delete the current phone number's order.
+     *
+     * @param view view.
+     */
+    public void cancelOrderClick(View view) {
 
         if (listOfOrders.getOrders().size() != 0) {
             Intent result = new Intent();
@@ -114,6 +156,10 @@ public class StoreOrdersActivity extends AppCompatActivity {
         }
     }
 
+    /**
+     * Back press handler to keep store order instance.
+     *
+     */
     @Override
     public void onBackPressed(){
         Intent result = new Intent();
@@ -123,6 +169,12 @@ public class StoreOrdersActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 
+    /**
+     * Upper back button press handler to keep store order instance.
+     *
+     * @param item item.
+     * @return true if upper back button pressed.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         Intent result = new Intent();

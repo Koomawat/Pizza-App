@@ -19,8 +19,12 @@ public class Constants {
      * Sales tax constant, the rate is 6.625%.
      */
     public static final double SALES_TAX =  0.06625;
-
+    /**
+     * Activity result code for order instances.
+     */
     public static final int ORDER_CODE = 1;
-
+    /**
+     * Activity result code for store order instances.
+     */
     public static final int STORE_ORDER_CODE = 2;
 }
